@@ -1,6 +1,7 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: [
@@ -32,26 +33,24 @@ module.exports = {
                 test: /\.(sass|scss)$/,
                 include: path.resolve(__dirname, 'src/sass'),
                 use: ExtractTextPlugin.extract({
-                  use: [{
-                      loader: "css-loader",
-                      options: {
-                        sourceMap: true,
-                        minimize: true,
-                        url: false
-                      }
-                    },
-                    {
-                      loader: "sass-loader",
-                      options: {
-                        sourceMap: true
-                      }
-                    }
-                  ]
+                    use: [{
+                            loader: "css-loader",
+                        },
+                        {
+                            loader: "sass-loader",
+                        }
+                    ]
                 })
-              }
+            }
         ]
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            inject: true,
+            hash: true,
+            template: './src/index.html',
+            filename: 'index.html'
+        }),
         new ExtractTextPlugin({
             filename: './css/style.bundle.css',
             allChunks: true,
