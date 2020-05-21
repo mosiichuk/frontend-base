@@ -46,8 +46,6 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            inject: true,
-            hash: true,
             template: './src/index.html',
             filename: 'index.html'
         }),
