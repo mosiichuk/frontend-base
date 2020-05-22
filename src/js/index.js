@@ -1,1 +1,7 @@
-let i = 1;
+export default class Some {
+
+    time = () => {
+        return 1;
+    };
+}
+
