@@ -22,6 +22,15 @@ let conf = {
                     'css-loader',
                     'sass-loader',
                 ]
+            },
+            {
+                test: /\.(jpg|png|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 25000
+                    }
+                }
             }
         ],
     },

@@ -1,7 +1,43 @@
-@import "~bootstrap/scss/bootstrap";
-    
-body
-    background-color: #012012;
+@import "~bootstrap/scss/bootstrap"
 
-.some
-    font-size: 12px;
+$base-white: #F9F8F3
+$base-black: #2F2F2F
+$accent: #FFE176
+$blue: #141329
+$grey: #C2C2C2
+
+.main
+    height: 100vh
+    background-image: url('../img/main_bg.png')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center top
+
+.menu
+    margin-top: 50px
+    
+    & :last-child:after
+        z-index: -1
+
+    &__item
+        margin: 0 10px
+        font-weight: 500
+        font-size: 20px
+        text-transform: uppercase
+        color: $base-white
+        text-decoration: none
+        position: relative
+
+        &:hover
+            text-decoration: none
+            color: $accent
+
+        &:after
+            position: absolute
+            content: ""
+            top: 0
+            height: 20px
+            border-left: 2px solid $base-white
+            z-index: 1
+            margin: 0 10px
+        
