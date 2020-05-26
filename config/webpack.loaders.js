@@ -91,7 +91,7 @@ const images = {
     exclude: /fonts/,
     use: [
         'file-loader?name=images/[name].[hash].[ext]',
-        // imageLoader
+        imageLoader
     ]
 };
 
@@ -106,7 +106,6 @@ const fonts = {
         },
     }, ],
 };
-
 
 module.exports = [
     html,

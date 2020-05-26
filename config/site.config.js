@@ -4,34 +4,36 @@ const fs = require('fs');
 let ROOT = process.env.PWD;
 
 if (!ROOT) {
-  ROOT = process.cwd();
+    ROOT = process.cwd();
 }
 
 const config = {
-  // Your website's name, used for favicon meta tags
-  site_name: 'Static Site Boilerplate',
+    // Your website's name, used for favicon meta tags
+    site_name: 'Site',
 
-  // Your website's description, used for favicon meta tags
-  site_description: 'A modern boilerplate for static website development',
+    // Your website's description, used for favicon meta tags
+    site_description: 'A modern site',
 
-  viewport: 'width=device-width,initial-scale=1',
+    viewport: 'width=device-width,initial-scale=1',
 
-  favicon: path.join(ROOT, '/src/images/favicon.png'),
+    favicon: path.join(ROOT, './src/favicon/favicon.png'),
 
-  dev_host: 'localhost',
+    dev_host: 'localhost',
 
-  port: process.env.PORT || 8000,
+    port: process.env.PORT || 8000,
 
-  env: process.env.NODE_ENV,
-  root: ROOT,
-  paths: {
-    config: 'config',
-    src: 'src',
-    dist: 'dist',
-  },
-  package: JSON.parse(
-    fs.readFileSync(path.join(ROOT, '/package.json'), { encoding: 'utf-8' }),
-  ),
+    env: process.env.NODE_ENV,
+    root: ROOT,
+    paths: {
+        config: 'config',
+        src: 'src',
+        dist: 'dist',
+    },
+    package: JSON.parse(
+        fs.readFileSync(path.join(ROOT, '/package.json'), {
+            encoding: 'utf-8'
+        }),
+    ),
 };
 
 module.exports = config;
