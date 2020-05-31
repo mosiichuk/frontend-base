@@ -1,4 +1,4 @@
-export default class Some {
+export default class Sample {
 
     time = () => {
         return 1;
