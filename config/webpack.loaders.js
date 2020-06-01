@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./site.config');
 
 const sourceMap = config.env !== 'production';
-
+asd
 const html = {
     test: /\.(html)$/,
     use: [{
