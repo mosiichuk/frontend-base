@@ -5,13 +5,17 @@
 ```
 git clone git@github.com:mosiichuk/frontend-base.git
 ```
-3. To start development in the root of the folder run command:
+3. Install dependencies required for the project.
+```
+npm install
+```
+4. To start development in the root of the folder run command:
 ```
 npm run start
 ```
 It will run local dev server and all your changes will be immediately reflected in browser.
 
-## Branching strategy
+## Work with git guide
 1. Before starting to work on new task, pull new changes from master branch.
 ```
 git checkout master
@@ -30,3 +34,4 @@ git commit -m "[SJE-01] Initial commit"
 ```
 git push origin SJE-01
 ```
+5. Create pull request.

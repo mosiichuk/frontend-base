@@ -2,16 +2,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./site.config');
 
 const sourceMap = config.env !== 'production';
-asd
-const html = {
-    test: /\.(html)$/,
-    use: [{
-        loader: 'html-loader',
-        options: {
-            interpolate: true,
-        },
-    }, ],
-};
 
 const js = {
     test: /\.js(x)?$/,
@@ -69,7 +59,7 @@ const sass = {
 const imageLoader = {
     loader: 'image-webpack-loader',
     options: {
-        bypassOnDebug: true,
+        disable: config.env === 'development',
         gifsicle: {
             interlaced: false,
         },
@@ -108,7 +98,6 @@ const fonts = {
 };
 
 module.exports = [
-    html,
     js,
     css,
     sass,
