@@ -5,7 +5,11 @@
 ```
 git clone git@github.com:mosiichuk/frontend-base.git
 ```
-3. To start development in the root of the folder run command:
+3. Install dependencies required for the project.
+```
+npm install
+```
+4. To start development in the root of the folder run command:
 ```
 npm run start
 ```
