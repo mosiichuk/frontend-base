@@ -34,3 +34,4 @@ git commit -m "[SJE-01] Initial commit"
 ```
 git push origin SJE-01
 ```
+5. Create pull request.
