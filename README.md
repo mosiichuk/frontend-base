@@ -15,7 +15,7 @@ npm run start
 ```
 It will run local dev server and all your changes will be immediately reflected in browser.
 
-## Branching strategy
+## Work with git guide
 1. Before starting to work on new task, pull new changes from master branch.
 ```
 git checkout master
