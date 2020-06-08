@@ -4,7 +4,9 @@ const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -36,18 +38,13 @@ const cssExtract = new MiniCssExtractPlugin({
     filename: './css/style.[contenthash].css',
 });
 
-const generateHTMLPlugins = () => glob.sync('./src/**/*.html').map((dir) => {
-    const filename = path.basename(dir);
-
-    return new HTMLWebpackPlugin({
-        filename,
-        template: path.join(config.root, config.paths.src, filename),
-        meta: {
-            viewport: config.viewport,
-            title: config.site_name,
-            description: config.site_description
-        },
-    });
+const htmlPlugin = new HTMLWebpackPlugin({
+    filename: "index.html",
+    template: path.join(config.root, config.paths.src, "index.html"),
+    meta: {
+        viewport: config.viewport,
+    },
+    title: config.site_name,
 });
 
 const favicons = new WebappWebpackPlugin({
@@ -72,7 +69,7 @@ const favicons = new WebappWebpackPlugin({
 module.exports = [
     clean,
     cssExtract,
-    ...generateHTMLPlugins(),
+    htmlPlugin,
     fs.existsSync(config.favicon) && favicons,
     config.env === 'production' && optimizeCss,
     config.env === 'development' && hmr,
