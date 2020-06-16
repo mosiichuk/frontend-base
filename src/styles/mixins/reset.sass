@@ -1,0 +1,23 @@
+@mixin reset-button-style
+    outline: none
+    position: relative
+    padding: 0
+    color: inherit
+    border: none
+    background: none
+    line-height: inherit
+    font-family: inherit
+    font-weight: inherit
+    font-size: inherit
+
+    &:hover,
+    &:focus,
+    &:active
+        background: inherit
+
+@mixin reset-link-style
+    &:link, &:visited
+        color: inherit
+        text-decoration: none
+        cursor: pointer
+

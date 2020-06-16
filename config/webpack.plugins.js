@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const cssnano = require('cssnano');
-const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 
@@ -47,6 +46,13 @@ const htmlPlugin = new HTMLWebpackPlugin({
     title: config.site_name,
 });
 
+const provider = new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery'
+});
+
+
 const favicons = new WebappWebpackPlugin({
     logo: config.favicon,
     prefix: 'images/favicons/',
@@ -67,6 +73,7 @@ const favicons = new WebappWebpackPlugin({
 });
 
 module.exports = [
+    provider,
     clean,
     cssExtract,
     htmlPlugin,

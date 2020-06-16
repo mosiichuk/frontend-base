@@ -1,0 +1,14 @@
+/* Sample how to add font via font-face*/
+
+/*
+@font-face {
+    font-family: 'Freight';
+    src: url('../fonts/FreightSansProLight-Regular.ttf');
+}
+*/
+
+/* Sample how to add font via include */
+
+/*
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+ */
