@@ -45,7 +45,7 @@
     "ftp-deploy": "^2.3.3",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",
-    "reset-css": "^4.0.1",
+    "reset-css": "^5.0.1",
     "sanitize.css": "^11.0.0",
     "webpack-dev-server": "^3.8.0"
   },
