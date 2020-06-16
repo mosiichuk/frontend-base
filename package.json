@@ -38,7 +38,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "^4.1.0",
     "clear": "^0.1.0",
     "enquirer": "^2.3.1",
     "figlet": "^1.2.3",
