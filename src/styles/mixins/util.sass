@@ -1,0 +1,13 @@
+@import './variables'
+
+@mixin pseudo($content: '')
+    content: $content
+    position: absolute
+
+@function calculateRem($size)
+    $remSize: $size / $baseSize
+    @return #{$remSize}rem
+
+@mixin fs($size)
+    font-size: #{$size}px //Fallback in px
+    font-size: calculateRem($size)

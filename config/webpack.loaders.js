@@ -32,11 +32,19 @@ const postcssLoader = {
     },
 };
 
+const groupCssMediaQueriesLoader = {
+    loader: "group-css-media-queries-loader",
+    options: {
+        sourceMap,
+    },
+};
+
 const css = {
     test: /\.css$/,
     use: [
         config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
         cssLoader,
+        groupCssMediaQueriesLoader,
         postcssLoader,
     ],
 };
@@ -46,6 +54,7 @@ const sass = {
     use: [
         config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
         cssLoader,
+        groupCssMediaQueriesLoader,
         postcssLoader,
         {
             loader: 'sass-loader',
