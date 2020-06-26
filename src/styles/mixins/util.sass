@@ -9,5 +9,11 @@
     @return #{$remSize}rem
 
 @mixin fs($size)
-    font-size: #{$size}px //Fallback in px
+    font-size: $size //Fallback in px
     font-size: calculateRem($size)
+
+@mixin abs-center()
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
