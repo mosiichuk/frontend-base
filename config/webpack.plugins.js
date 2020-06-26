@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const cssnano = require('cssnano');
 const path = require('path');
 const fs = require('fs');
+const glob = require('glob');
 
 const {
     CleanWebpackPlugin
@@ -37,21 +38,26 @@ const cssExtract = new MiniCssExtractPlugin({
     filename: './css/style.[contenthash].css',
 });
 
-const htmlPlugin = new HTMLWebpackPlugin({
-    filename: "index.html",
-    template: path.join(config.root, config.paths.src, "index.html"),
-    meta: {
-        viewport: config.viewport,
-    },
-    title: config.site_name,
-});
+const generateHTMLPlugins = () => glob.sync('./src/**/*.html')
+    .filter(dir => !dir.includes("partials"))
+    .map((dir) => {
+        const filename = path.basename(dir);
+
+        return new HTMLWebpackPlugin({
+            filename,
+            template: path.join(config.root, dir),
+            meta: {
+                viewport: config.viewport,
+            },
+            title: config.site_name
+        });
+    });
 
 const provider = new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
     'window.jQuery': 'jquery'
 });
-
 
 const favicons = new WebappWebpackPlugin({
     logo: config.favicon,
@@ -76,7 +82,7 @@ module.exports = [
     provider,
     clean,
     cssExtract,
-    htmlPlugin,
+    ...generateHTMLPlugins(),
     fs.existsSync(config.favicon) && favicons,
     config.env === 'production' && optimizeCss,
     config.env === 'development' && hmr,

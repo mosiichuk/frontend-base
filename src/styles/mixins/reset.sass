@@ -16,8 +16,22 @@
         background: inherit
 
 @mixin reset-link-style
+    color: inherit
+    text-decoration: none
+    cursor: pointer
+
     &:link, &:visited
         color: inherit
         text-decoration: none
         cursor: pointer
+
+@mixin reset-input-style
+    outline: none
+    text-decoration: none
+    box-shadow: none
+
+    &:focus, &:active, &:hover
+        outline: none
+        text-decoration: none
+        box-shadow: none
 
