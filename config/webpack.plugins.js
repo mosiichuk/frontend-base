@@ -35,7 +35,7 @@ const optimizeCss = new OptimizeCssAssetsPlugin({
 const clean = new CleanWebpackPlugin();
 
 const cssExtract = new MiniCssExtractPlugin({
-    filename: './css/style.[contenthash].css',
+    filename: './style.[contenthash].css',
 });
 
 const generateHTMLPlugins = () => glob.sync('./src/**/*.html')
@@ -54,9 +54,8 @@ const generateHTMLPlugins = () => glob.sync('./src/**/*.html')
     });
 
 const provider = new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    'window.jQuery': 'jquery'
+    Swiper: 'swiper',
+    'window.Swiper': 'swiper',
 });
 
 const favicons = new WebappWebpackPlugin({

@@ -1,17 +1,29 @@
 @import "./variables"
 
-@mixin screen($name, $type: null, $breakpoints: $grid-breakpoints)
-    $value: map-get($breakpoints, $name)
-    @if $value && $value != 0
-        @media screen and ($type + -width: $value)
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints)
+    $min: map-get($breakpoints, $name)
+    @return if($min != 0, $min, null)
+
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints)
+    $max: map-get($breakpoints, $name)
+    @return if($max, $max - .02, null)
+
+
+@mixin screen-up($name, $breakpoints: $grid-breakpoints)
+    $min: breakpoint-min($name, $breakpoints)
+    @if $min
+        @media (min-width: $min)
             @content
+
     @else
         @content
 
-@mixin screen-up($name, $type: min, $breakpoints: $grid-breakpoints)
-    @include screen($name, $type, $breakpoints)
-        @content
+@mixin screen-down($name, $breakpoints: $grid-breakpoints)
+    $max: breakpoint-max($name, $breakpoints)
+    @if $max
+        @media (max-width: $max)
+            @content
 
-@mixin screen-down($name, $type: max, $breakpoints: $grid-breakpoints)
-    @include screen($name, $type, $breakpoints)
+    @else
         @content

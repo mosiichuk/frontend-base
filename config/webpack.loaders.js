@@ -3,6 +3,26 @@ const config = require('./site.config');
 
 const sourceMap = config.env !== 'production';
 
+const html = {
+    test: /\.(html)$/,
+    use: [{
+            loader: 'ejs-loader',
+            options: {
+                esModule: false,
+            },
+        },
+        {
+            loader: 'extract-loader'
+        },
+        {
+            loader: 'html-loader',
+            options: {
+                interpolate: true,
+            },
+        },
+    ],
+};
+
 const js = {
     test: /\.js(x)?$/,
     exclude: /node_modules/,
@@ -75,10 +95,10 @@ const imageLoader = {
         optipng: {
             optimizationLevel: 7,
         },
-        pngquant: {
-            quality: '65-90',
-            speed: 4,
-        },
+        pngquant: [
+            '65-90',
+            4,
+        ],
         mozjpeg: {
             progressive: true,
         }
@@ -89,7 +109,7 @@ const images = {
     test: /\.(gif|png|jpe?g|svg)$/,
     exclude: /fonts/,
     use: [
-        'file-loader?name=images/[name].[hash].[ext]',
+        'file-loader?name=img/[name].[hash].[ext]&esModule=false',
         imageLoader
     ]
 };
@@ -107,6 +127,7 @@ const fonts = {
 };
 
 module.exports = [
+    html,
     js,
     css,
     sass,
