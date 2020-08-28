@@ -11,6 +11,7 @@ module.exports = {
     ],
     output: {
         filename: './js/bundle.[hash].js',
+        path: path.resolve(__dirname, config.paths.dist)
     },
     mode: ['production', 'development'].includes(config.env) ?
         config.env :

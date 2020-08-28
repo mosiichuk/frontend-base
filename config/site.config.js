@@ -27,7 +27,7 @@ const config = {
     paths: {
         config: 'config',
         src: 'src',
-        dist: 'dist',
+        dist: '../build',
     },
     package: JSON.parse(
         fs.readFileSync(path.join(ROOT, '/package.json'), {
