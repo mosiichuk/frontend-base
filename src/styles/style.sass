@@ -5,64 +5,6 @@
 @import "./reset"
 @import "./variables"
 
-@import "./css/fonts.css"
-
 html
     scroll-behavior: smooth
-    +fs(16px)
-
-body
-    font-family: 'Nunito', sans-serif
-    line-height: 22px
-    letter-spacing: 0.105em
-    font-weight: 300
-    background-color: $main-bg
-    color: $main-text
-
-h1, h2, h3, h4
-    font-weight: 400
-    color: $header-text
-
-h1
-    +fs(220px)
-    line-height: 0.90em
-    letter-spacing: 0.04em
-    text-transform: uppercase
-    color: $main-bg
-
-    +screen-down(lg)
-        +fs(180px)
-
-    +screen-down(md)
-        +fs(140px)
-
-    +screen-down(sm)
-        +fs(90px)
-
-h2
-    +fs(60px)
-    font-weight: 300
-    line-height: 62px
-    letter-spacing: 0.085em
-    text-transform: uppercase
-    color: $main-bg
-
-    +screen-down(lg)
-        +fs(50px)
-
-    +screen-down(md)
-        +fs(40px)
-
-    +screen-down(sm)
-        +fs(25px)
-
-h3
-    +fs(36px)
-    font-weight: 500
-    line-height: 44px
-    color: $header-text
-
-h4
-    +fs(18px)
-    line-height: 22px
 

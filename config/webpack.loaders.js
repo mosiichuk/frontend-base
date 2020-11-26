@@ -1,19 +1,12 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./site.config');
+const path = require('path');
 
 const sourceMap = config.env !== 'production';
 
 const html = {
     test: /\.(html)$/,
-    use: [{
-            loader: 'ejs-loader',
-            options: {
-                esModule: false,
-            },
-        },
-        {
-            loader: 'extract-loader'
-        },
+    use: [
         {
             loader: 'html-loader',
             options: {
@@ -107,9 +100,22 @@ const imageLoader = {
 
 const images = {
     test: /\.(gif|png|jpe?g|svg)$/,
-    exclude: /fonts/,
+    include: [
+        path.resolve(__dirname, '../src/img/')
+    ],
     use: [
         'file-loader?name=img/[name].[hash].[ext]&esModule=false',
+        imageLoader
+    ]
+};
+
+const icons = {
+    test: /\.(gif|png|jpe?g|svg)$/,
+    include: [
+        path.resolve(__dirname, '../src/icons/')
+    ],
+    use: [
+        'file-loader?name=icons/[name].[hash].[ext]&esModule=false',
         imageLoader
     ]
 };
@@ -132,5 +138,6 @@ module.exports = [
     css,
     sass,
     images,
+    icons,
     fonts,
 ];

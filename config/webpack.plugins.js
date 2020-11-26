@@ -60,7 +60,7 @@ const provider = new webpack.ProvidePlugin({
 
 const favicons = new WebappWebpackPlugin({
     logo: config.favicon,
-    prefix: 'images/favicons/',
+    prefix: 'img/favicons/',
     favicons: {
         appName: config.site_name,
         appDescription: config.site_description,
