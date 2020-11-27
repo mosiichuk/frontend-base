@@ -122,7 +122,10 @@ const icons = {
 
 const fonts = {
     test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
-    exclude: /img/,
+    exclude: [
+        /img/,
+        /icons/
+    ],
     use: [{
         loader: 'file-loader',
         query: {
