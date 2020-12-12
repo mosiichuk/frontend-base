@@ -11,6 +11,6 @@ npm install
 ```
 4. To start development in the root of the folder run command:
 ```
-npm run start
+npm start
 ```
 It will run local dev server and all your changes will be immediately reflected in browser.
