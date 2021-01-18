@@ -34,7 +34,7 @@
         "popper.js": "^1.16.1",
         "postcss-loader": "^3.0.0",
         "postcss-sass": "^0.4.1",
-        "sass-loader": "^8.0.2",
+        "sass-loader": "^10.1.1",
         "style-loader": "^1.0.0",
         "webapp-webpack-plugin": "^2.7.1",
         "webpack": "^4.39.2",
