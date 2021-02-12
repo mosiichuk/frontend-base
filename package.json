@@ -37,22 +37,18 @@
         "sass-loader": "^8.0.2",
         "style-loader": "^1.0.0",
         "webapp-webpack-plugin": "^2.7.1",
-        "webpack": "^4.39.2",
-        "webpack-cli": "^3.3.12",
-        "webpack-merge": "^4.2.1"
+        "webpack": "^5.21.2",
+        "webpack-cli": "^4.5.0",
+        "webpack-merge": "^5.7.3"
     },
     "dependencies": {
         "clear": "^0.1.0",
         "css-reset-and-normalize": "^2.1.0",
-        "ejs-loader": "^0.5.0",
-        "extract-loader": "^5.1.0",
-        "jquery": "^3.4.1",
-        "swiper": "^6.0.0",
-        "webpack-dev-server": "^3.8.0"
+        "webpack-dev-server": "^3.11.2"
     },
     "scripts": {
         "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js",
-        "start": "cross-env NODE_ENV=development webpack-dev-server --config ./config/webpack.config.js",
+        "start": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.config.js",
         "start:dist": "http-server build --port 8000",
         "preview": "npm run build && npm run start:dist",
         "predeploy": "npm run build",
