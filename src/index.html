@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="description" content="<%=htmlWebpackPlugin.options.description %>"/>
+    <title>${require('../config/site.config.js').site_name}</title>
+    <meta name="description" content="${require('../config/site.config.js').site_description}"/>
 </head>
 <body>
 

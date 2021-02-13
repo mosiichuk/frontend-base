@@ -10,6 +10,7 @@ module.exports = {
         main: path.join(config.root, config.paths.src, '/app.js'),
     },
     output: {
+        publicPath: '',
         filename: './js/bundle.[chunkhash].js',
         path: path.resolve(__dirname, config.paths.dist)
     },
@@ -29,8 +30,8 @@ module.exports = {
         overlay: true,
     },
     target: config.env === "development" ? "web" : "browserslist",
-    // module: {
-    //     rules: loaders,
-    // },
+    module: {
+        rules: loaders,
+    },
     plugins,
 }

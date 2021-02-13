@@ -1,20 +1,21 @@
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const config = require('./site.config');
-// const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const config = require('./site.config');
+const path = require('path');
 
-// const sourceMap = config.env !== 'production';
-//
-// const html = {
-//     test: /\.(html)$/,
-//     use: [
-//         {
-//             loader: 'html-loader',
-//             options: {
-//                 interpolate: true,
-//             },
-//         },
-//     ],
-// };
+const sourceMap = config.env !== 'production';
+
+const html = {
+    test: /\.(html)$/,
+    use: [
+        {
+            loader: 'html-loader',
+            options: {
+                interpolate: true,
+                removeComments: true,
+            },
+        },
+    ],
+};
 //
 // const js = {
 //     test: /\.js(x)?$/,
@@ -77,7 +78,7 @@
 //         },
 //     ],
 // };
-
+//
 // const imageLoader = {
 //     loader: 'image-webpack-loader',
 //     options: {
@@ -97,7 +98,7 @@
 //         }
 //     },
 // };
-
+//
 // const images = {
 //     test: /\.(gif|png|jpe?g|svg)$/,
 //     include: [
@@ -136,7 +137,7 @@
 // };
 
 module.exports = [
-    // html,
+    html,
     // js,
     // css,
     // sass,
