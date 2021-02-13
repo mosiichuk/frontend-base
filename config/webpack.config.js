@@ -28,8 +28,9 @@ module.exports = {
         host: config.dev_host,
         overlay: true,
     },
+    target: config.env === "development" ? "web" : "browserslist",
     // module: {
     //     rules: loaders,
     // },
-    // plugins,
+    plugins,
 }
