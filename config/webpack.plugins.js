@@ -1,4 +1,3 @@
-const cssnano = require('cssnano');
 const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
@@ -8,32 +7,26 @@ const {
 } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 // const WebappWebpackPlugin = require('webapp-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const config = require('./site.config');
 
-// const optimizeCss = new OptimizeCssAssetsPlugin({
-//     assetNameRegExp: /\.css$/g,
-//     cssProcessor: cssnano,
-//     cssProcessorPluginOptions: {
-//         preset: [
-//             'default',
-//             {
-//                 discardComments: {
-//                     removeAll: true,
-//                 },
-//             },
-//         ],
-//     },
-//     canPrint: true,
-// });
+const optimizeCss = new CssMinimizerPlugin({
+    minimizerOptions: {
+        preset: [
+            'default',
+            {
+                discardComments: { removeAll: true },
+            },
+        ],
+    },
+});
 
 const clean = new CleanWebpackPlugin();
-//
-// const cssExtract = new MiniCssExtractPlugin({
-//     filename: './style.[contenthash].css',
-// });
+
+const cssExtract = new MiniCssExtractPlugin({
+    filename: './style.[contenthash].css',
+});
 
 const generateHTMLPlugins = () => glob.sync('./src/**/*.html')
     .filter(dir => !dir.includes("partials"))
@@ -79,8 +72,8 @@ const env = new webpack.DefinePlugin({
 module.exports = [
     clean,
     env,
-    // cssExtract,
+    cssExtract,
     ...generateHTMLPlugins(),
     // fs.existsSync(config.favicon) && favicons,
-    // config.env === 'production' && optimizeCss,
+    config.isProduction && optimizeCss,
 ].filter(Boolean);

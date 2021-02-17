@@ -1,5 +1,4 @@
-// import "bootstrap/dist/css/bootstrap.min.css"
-// import "css-reset-and-normalize";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 // import './js/index';
-// import './styles/style.sass';
+import './styles/style.sass';

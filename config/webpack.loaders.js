@@ -24,60 +24,60 @@ const html = {
 //         loader: 'babel-loader'
 //     }],
 // };
-//
-// const styleLoader = {
-//     loader: 'style-loader'
-// };
-//
-// const cssLoader = {
-//     loader: 'css-loader',
-//     options: {
-//         sourceMap,
-//     },
-// };
-//
-// const postcssLoader = {
-//     loader: 'postcss-loader',
-//     options: {
-//         plugins: [
-//             require('autoprefixer')(),
-//         ],
-//         sourceMap,
-//     },
-// };
-//
-// const groupCssMediaQueriesLoader = {
-//     loader: "group-css-media-queries-loader",
-//     options: {
-//         sourceMap,
-//     },
-// };
-//
-// const css = {
-//     test: /\.css$/,
-//     use: [
-//         config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
-//         cssLoader,
-//         groupCssMediaQueriesLoader,
-//         postcssLoader,
-//     ],
-// };
-//
-// const sass = {
-//     test: /\.s[c|a]ss$/,
-//     use: [
-//         config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
-//         cssLoader,
-//         groupCssMediaQueriesLoader,
-//         postcssLoader,
-//         {
-//             loader: 'sass-loader',
-//             options: {
-//                 sourceMap,
-//             },
-//         },
-//     ],
-// };
+
+const styleLoader = {
+    loader: 'style-loader'
+};
+
+const cssLoader = {
+    loader: 'css-loader',
+    options: {
+        sourceMap,
+    },
+};
+
+const postcssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: [
+            require('autoprefixer')(),
+        ],
+        sourceMap,
+    },
+};
+
+const groupCssMediaQueriesLoader = {
+    loader: "group-css-media-queries-loader",
+    options: {
+        sourceMap,
+    },
+};
+
+const css = {
+    test: /\.css$/,
+    use: [
+        config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
+        cssLoader,
+        groupCssMediaQueriesLoader,
+        postcssLoader,
+    ],
+};
+
+const sass = {
+    test: /\.s[c|a]ss$/,
+    use: [
+        config.env === 'production' ? MiniCssExtractPlugin.loader : styleLoader,
+        cssLoader,
+        groupCssMediaQueriesLoader,
+        postcssLoader,
+        {
+            loader: 'sass-loader',
+            options: {
+                sourceMap,
+            },
+        },
+    ],
+};
 
 const imageLoader = {
     loader: 'image-webpack-loader',
@@ -139,8 +139,8 @@ const icons = {
 module.exports = [
     html,
     // js,
-    // css,
-    // sass,
+    css,
+    sass,
     images,
     icons,
     // fonts,
