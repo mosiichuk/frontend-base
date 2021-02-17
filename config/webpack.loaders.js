@@ -16,14 +16,14 @@ const html = {
         },
     ],
 };
-//
-// const js = {
-//     test: /\.js(x)?$/,
-//     exclude: /node_modules/,
-//     use: [{
-//         loader: 'babel-loader'
-//     }],
-// };
+
+const js = {
+    test: /\.js(x)?$/,
+    exclude: /node_modules/,
+    use: [{
+        loader: 'babel-loader'
+    }],
+};
 
 const styleLoader = {
     loader: 'style-loader'
@@ -120,28 +120,24 @@ const icons = {
         imageLoader
     ]
 };
-//
-// const fonts = {
-//     test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
-//     exclude: [
-//         /img/,
-//         /icons/
-//     ],
-//     use: [{
-//         loader: 'file-loader',
-//         query: {
-//             name: '[name].[hash].[ext]',
-//             outputPath: 'fonts/',
-//         },
-//     }, ],
-// };
+
+const fonts = {
+    test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+    exclude: [
+        /img/,
+        /icons/
+    ],
+    use: [{
+        loader: 'file-loader?name=fonts/[name].[hash].[ext]&esModule=false',
+    }, ],
+};
 
 module.exports = [
     html,
-    // js,
+    js,
     css,
     sass,
     images,
     icons,
-    // fonts,
+    fonts,
 ];
