@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 
 let ROOT = process.env.PWD;
 
@@ -20,13 +19,8 @@ const config = {
     paths: {
         config: 'config',
         src: 'src',
-        dist: '../build',
+        dist: '../dist',
     },
-    package: JSON.parse(
-        fs.readFileSync(path.join(ROOT, '/package.json'), {
-            encoding: 'utf-8'
-        }),
-    ),
 };
 
 module.exports = config;
