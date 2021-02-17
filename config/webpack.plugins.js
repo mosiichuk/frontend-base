@@ -6,10 +6,10 @@ const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-// const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const config = require('./site.config');
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const optimizeCss = new CssMinimizerPlugin({
     minimizerOptions: {
@@ -43,25 +43,25 @@ const generateHTMLPlugins = () => glob.sync('./src/**/*.html')
             description: config.site_description
         });
     });
-//
-// const favicons = new WebappWebpackPlugin({
-//     logo: config.favicon,
-//     prefix: 'img/favicons/',
-//     favicons: {
-//         appName: config.site_name,
-//         appDescription: config.site_description,
-//         icons: {
-//             android: true,
-//             appleIcon: true,
-//             appleStartup: false,
-//             coast: false,
-//             favicons: true,
-//             firefox: false,
-//             windows: false,
-//             yandex: false,
-//         },
-//     },
-// });
+
+const favicons = new FaviconsWebpackPlugin({
+    logo: config.favicon,
+    prefix: './img/favicons/',
+    favicons: {
+        appName: config.site_name,
+        appDescription: config.site_description,
+        icons: {
+            android: true,
+            appleIcon: true,
+            appleStartup: false,
+            coast: false,
+            favicons: true,
+            firefox: false,
+            windows: false,
+            yandex: false,
+        },
+    },
+});
 
 const env = new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -74,6 +74,6 @@ module.exports = [
     env,
     cssExtract,
     ...generateHTMLPlugins(),
-    // fs.existsSync(config.favicon) && favicons,
+    fs.existsSync(config.favicon) && favicons,
     config.isProduction && optimizeCss,
 ].filter(Boolean);
