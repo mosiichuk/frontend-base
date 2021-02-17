@@ -15,6 +15,7 @@ const config = {
     dev_host: 'localhost',
     port: process.env.PORT || 8000,
     env: process.env.NODE_ENV,
+    isProduction: process.env.NODE_ENV === 'production',
     root: ROOT,
     paths: {
         config: 'config',

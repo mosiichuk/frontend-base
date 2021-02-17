@@ -17,7 +17,7 @@ module.exports = {
     mode: ['production', 'development'].includes(config.env) ?
         config.env :
         'development',
-    devtool: config.env === 'production' ?
+    devtool: config.isProduction ?
         'source-map' :
         'eval-cheap-module-source-map',
     devServer: {
@@ -29,7 +29,7 @@ module.exports = {
         host: config.dev_host,
         overlay: true,
     },
-    target: config.env === "development" ? "web" : "browserslist",
+    target: config.isProduction ?  "browserslist" : "web",
     module: {
         rules: loaders,
     },

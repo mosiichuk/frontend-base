@@ -2,7 +2,7 @@ const cssnano = require('cssnano');
 const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
-
+const webpack = require("webpack");
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
@@ -70,8 +70,15 @@ const generateHTMLPlugins = () => glob.sync('./src/**/*.html')
 //     },
 // });
 
+const env = new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    'process.env.PWD': JSON.stringify(process.env.PWD),
+    'process.env.PORT': JSON.stringify(process.env.PORT),
+});
+
 module.exports = [
     clean,
+    env,
     // cssExtract,
     ...generateHTMLPlugins(),
     // fs.existsSync(config.favicon) && favicons,
