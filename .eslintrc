@@ -5,6 +5,7 @@
         "window": true,
         "document": true,
         "module": true,
-        "require": true
+        "require": true,
+        "process": true
     }
 }

@@ -11,6 +11,7 @@ const html = {
             loader: 'html-loader',
             options: {
                 interpolate: true,
+                removeComments: true,
             },
         },
     ],
@@ -127,12 +128,8 @@ const fonts = {
         /icons/
     ],
     use: [{
-        loader: 'file-loader',
-        query: {
-            name: '[name].[hash].[ext]',
-            outputPath: 'fonts/',
-        },
-    }, ],
+        loader: 'file-loader?name=fonts/[name].[hash].[ext]&esModule=false',
+    },],
 };
 
 module.exports = [
