@@ -29,7 +29,7 @@ module.exports = {
         host: config.dev_host,
         overlay: true,
     },
-    target: config.isProduction ?  "browserslist" : "web",
+    target: config.isProduction ? "browserslist" : "web",
     module: {
         rules: loaders,
     },

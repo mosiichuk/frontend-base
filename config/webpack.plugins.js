@@ -16,7 +16,7 @@ const optimizeCss = new CssMinimizerPlugin({
         preset: [
             'default',
             {
-                discardComments: { removeAll: true },
+                discardComments: {removeAll: true},
             },
         ],
     },

@@ -129,7 +129,7 @@ const fonts = {
     ],
     use: [{
         loader: 'file-loader?name=fonts/[name].[hash].[ext]&esModule=false',
-    }, ],
+    },],
 };
 
 module.exports = [
