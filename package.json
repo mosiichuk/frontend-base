@@ -27,7 +27,7 @@
         "gh-pages": "^3.1.0",
         "glob": "^7.1.4",
         "group-css-media-queries-loader": "^3.0.2",
-        "html-loader": "^0.5.5",
+        "html-loader": "^3.1.2",
         "html-webpack-plugin": "^5.1.0",
         "http-server": "^0.12.3",
         "image-webpack-loader": "^6.0.0",
